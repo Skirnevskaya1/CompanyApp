@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
+rootProject.name = "CompanyApp"
+
+include ':app'
+include ':models'
+include ':utils'
+include ':config'
+include ':db'
+include ':repository'

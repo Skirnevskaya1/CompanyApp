@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CompanyApp</string>
+    <string name="logo_description">Логотип</string>
+    <string name="lblExit">Выйти</string>
+    <string name="lblSettings">Настройки</string>
+    <string name="lblNotification">Уведомления</string>
+    <string name="lblCalcStops">Простои</string>
+    <string name="lblMaterials">Материалы</string>
+    <string name="lblFillReports">Заполнение сведений</string>
+    <string name="lblOnMain">Главное меню</string>
+    <string name="WorkerPhoto">ФОТО</string>
+    <string name="company_app">Company App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="groupNotification">Внешний</string>
+    <string name="personalNotification">Внутренний</string>
+    <string name="pabNotification">Вам выдан ПАБ №</string>
+    <string name="medicalNotification">Необходимо сдать отчет в период с</string>
+    <string name="checkKnowledgeNotification">Вам назначена аттестация</string>
+    <string name="briefingNotification">Вам необходимо пройти инструктаж</string>
+    <string name="po">по</string>
+    <string name="ot">от</string>
+    <string name="ppkPab">Отчет ППК</string>
+    <string name="empty_server_response_on_success">Ответ с сервера пустой</string>
+</resources>

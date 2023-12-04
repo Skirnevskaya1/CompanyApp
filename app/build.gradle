@@ -1,0 +1,135 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    signingConfigs {
+        release {
+        }
+    }
+    compileSdkVersion 31
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/sharedTestData/java"
+        }
+        test {
+            java.srcDirs += "src/sharedTestData/java"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility Config.java_version
+        targetCompatibility Config.java_version
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation project(Modules.models)
+    implementation project(Modules.utils)
+    implementation project(Modules.config)
+    implementation project(Modules.db)
+    implementation project(Modules.repository)
+    implementation AndroidBase.core
+    implementation AndroidBase.appCompat
+    implementation AndroidBase.gson
+    implementation AndroidBase.legacy
+    androidTestImplementation 'androidx.test:rules:1.4.1-alpha03'
+
+    kapt AndroidBase.databinding
+
+    implementation AndroidDesign.material
+    implementation AndroidDesign.constraintLayout
+    implementation AndroidDesign.navigationFragment
+    implementation AndroidDesign.navigationUI
+    implementation AndroidDesign.cardView
+    implementation AndroidDesign.recyclerview
+    implementation AndroidDesign.lifecycleExtensions
+    implementation AndroidDesign.lifecycleViewModel
+    kapt AndroidDesign.design
+
+    //Robolectric
+    debugImplementation TestUnit.fragmentTesting
+    testImplementation TestUnit.robolectric
+    testImplementation TestUnit.testCore
+    testImplementation TestUnit.testRunner
+    testImplementation TestUnit.junit
+    testImplementation TestUnit.testExtTruth
+    testImplementation TestUnit.espressoCore
+    androidTestImplementation TestUnit.espressoCore
+    testImplementation TestUnit.espressoIntents
+    androidTestImplementation TestUnit.junitExt
+    androidTestImplementation TestUnit.uiautomator
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.4.0'
+    testImplementation 'org.robolectric:robolectric:4.6'
+    testImplementation 'androidx.test:core:1.4.0'
+    testImplementation 'androidx.test:runner:1.4.0'
+    testImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'androidx.test.ext:truth:1.4.0'
+    testImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha03'
+    testImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
+    // автоматизированное тестирование UI
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    debugImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
+    // тест корутин
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+
+    implementation Kotlin.kotlin
+
+    // RxJava 3 - реактивность
+    implementation RxJava.rxjava
+
+    //Retrofit 2 - запрос с сервера данных
+    implementation Retrofit.retrofit
+    implementation Retrofit.gson
+    implementation Retrofit.okhttp
+    implementation Retrofit.rxjava3
+    implementation Retrofit.RetrofitCoroutine
+
+    //Koin - dependency injection
+    implementation KoinDI.core
+    implementation KoinDI.koinAndroid
+    implementation KoinDI.koinAndroidCompat
+
+    //Room - локальная БД
+    implementation Room.runtime
+    implementation Room.ktx
+    kapt Room.compiler
+
+    // Mockito - тестирование
+    testImplementation Mockito.mockitoCore
+    testImplementation Mockito.mockitoInline
+    testImplementation(Mockito.mockitoKotlin) {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
+}
